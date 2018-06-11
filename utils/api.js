@@ -1,6 +1,11 @@
 import { AsyncStorage } from 'react-native'
 const DECKS_STORAGE_KEY = 'armflashcards:decks'
 
+
+export function reset () {
+  return AsyncStorage.removeItem(DECKS_STORAGE_KEY)
+}
+
 export function getDecks () {
   return AsyncStorage.getItem(DECKS_STORAGE_KEY).then(JSON.parse)
 }
