@@ -11,8 +11,15 @@ class Decks extends PureComponent {
       <View>
         {
           Object.keys(decks).map(key => (
-            <View key={key} style={[styles.item, {borderColor:purple}]}>
-              <Deck deck={decks[key]}/>
+            <View key={key} style={styles.item}>
+              <TouchableOpacity
+                onPress={() => this.props.navigation.navigate(
+                  'DeckDetail',
+                  { deckId: decks[key].title }
+                )}
+              >
+                <Deck deck={decks[key]}/>
+              </TouchableOpacity>
             </View>
           ))
         }

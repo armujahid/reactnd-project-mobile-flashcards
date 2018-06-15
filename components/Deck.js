@@ -5,10 +5,10 @@ export default class Deck extends PureComponent {
   render() {
     const { deck } = this.props
     return (
-      <View>
-        <Text>{deck.title}</Text>
-        <Text>{deck.questions.length} questions</Text>
-      </View>
+        <View>
+          <Text>{deck.title}</Text>
+          <Text>{deck.questions.length} cards</Text>
+        </View>
     )
   }
 }
