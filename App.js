@@ -9,6 +9,7 @@ import { purple, white } from './utils/colors'
 import store from './store'
 import Decks from './components/Decks'
 import NewDeck from './components/NewDeck'
+import DeckDetail from './components/DeckDetail'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 
 function MobiStatusBar ({backgroundColor, ...props}) {
@@ -57,18 +58,16 @@ const Tabs = createBottomTabNavigator({
 const MainNavigator = createStackNavigator({
   Home: {
     screen: Tabs,
+  },
+  DeckDetail: {
+    screen: DeckDetail,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      }
+    }
   }
-  // EntryDetail: {
-  //   screen: EntryDetail,
-  //   navigationOptions: {
-  //     headerTintColor: white,
-  //     headerStyle: {
-  //       backgroundColor: purple,
-  //     }
-  //   }
-  // }
-}, {
-  headerMode: 'none'
 })
 
 export default class App extends Component {
