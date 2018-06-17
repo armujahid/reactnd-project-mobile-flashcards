@@ -25,7 +25,9 @@ class NewDeck extends PureComponent {
           value={title}
           onChangeText={(title) => this.setState({title})}
         />
-        <TextButton style={{margin: 20}} onPress={this.handleSubmit} >
+        <TextButton style={{margin: 20}}
+          disabled={title === ''}
+          onPress={this.handleSubmit} >
           Submit
         </TextButton>
       </View>
