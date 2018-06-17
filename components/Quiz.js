@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 
@@ -62,9 +62,11 @@ class Quiz extends PureComponent {
 
     return (
       <View>
-        <TouchableOpacity onPress={this.toggleView}>
-          <Text>{showAnsHideQues? card.answer: card.question}</Text>
-        </TouchableOpacity>
+        <Text>{showAnsHideQues? card.answer: card.question}</Text>
+        <TextButton style={{margin: 20}}
+          onPress={this.toggleView} >
+          {showAnsHideQues? 'Show Question': 'Show Answer'}
+        </TextButton>
         <TextButton style={{margin: 20}}
           onPress={this.handleCorrect} >
           Correct
