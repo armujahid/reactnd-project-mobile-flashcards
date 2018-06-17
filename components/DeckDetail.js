@@ -13,16 +13,7 @@ class DeckDetail extends Component {
       title: deckTitle
     }
   }
-  // reset = () => {
-  //   const { remove, goBack, deckTitle } = this.props
 
-  //   remove()
-  //   goBack()
-  //   removeEntry(entryId)
-  // }
-  // shouldComponentUpdate (nextProps) {
-  //   return nextProps.metrics !== null && !nextProps.metrics.today
-  // }
   startQuiz = () => {
     const { deck } = this.props
     this.props.navigation.navigate(
@@ -48,7 +39,9 @@ class DeckDetail extends Component {
         )}>
           Add Card
         </TextButton>
-        <TextButton style={{margin: 20}} onPress={this.startQuiz}>
+        <TextButton style={{margin: 20}}
+          disabled={deck.questions.length === 0}
+          onPress={this.startQuiz}>
           Start Quiz
         </TextButton>
       </View>
