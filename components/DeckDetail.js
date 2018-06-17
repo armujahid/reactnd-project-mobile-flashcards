@@ -7,14 +7,14 @@ import TextButton from './TextButton'
 
 class DeckDetail extends Component {
   static navigationOptions = ({ navigation }) => {
-    const { deckId } = navigation.state.params
+    const { deckTitle } = navigation.state.params
 
     return {
-      title: deckId
+      title: deckTitle
     }
   }
   // reset = () => {
-  //   const { remove, goBack, deckId } = this.props
+  //   const { remove, goBack, deckTitle } = this.props
 
   //   remove()
   //   goBack()
@@ -68,16 +68,16 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps (state, { navigation }) {
-  const { deckId } = navigation.state.params
+  const { deckTitle } = navigation.state.params
 
   return {
-    deckId,
-    deck: state[deckId],
+    deckTitle,
+    deck: state[deckTitle],
   }
 }
 
 function mapDispatchToProps (dispatch, { navigation }) {
-  // const { deckId } = navigation.state.params
+  // const { deckTitle } = navigation.state.params
 
   return {
     // addCard: (decktitle, card) => dispatch(addCard(decktitle, card)),

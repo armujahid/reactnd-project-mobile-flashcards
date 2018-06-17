@@ -9,7 +9,7 @@ class Decks extends PureComponent {
   handleDeckPress = (deck) => {
     this.props.navigation.navigate(
       'DeckDetail',
-      { deckId: deck.title }
+      { deckTitle: deck.title }
     )
   }
 
