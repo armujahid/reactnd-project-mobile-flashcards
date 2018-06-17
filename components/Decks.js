@@ -5,6 +5,14 @@ import { white, purple } from '../utils/colors'
 import Deck from './Deck'
 
 class Decks extends PureComponent {
+
+  handleDeckPress = (deck) => {
+    this.props.navigation.navigate(
+      'DeckDetail',
+      { deckId: deck.title }
+    )
+  }
+
   render() {
     const { decks } = this.props
     return (
@@ -13,11 +21,7 @@ class Decks extends PureComponent {
           Object.keys(decks).map(key => (
             <View key={key} style={styles.item}>
               <TouchableOpacity
-                onPress={() => this.props.navigation.navigate(
-                  'DeckDetail',
-                  { deckId: decks[key].title }
-                )}
-              >
+                onPress={() => this.handleDeckPress(decks[key])}>
                 <Deck deck={decks[key]}/>
               </TouchableOpacity>
             </View>

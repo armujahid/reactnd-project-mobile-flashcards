@@ -32,7 +32,10 @@ class DeckDetail extends Component {
           <Text>{deck.title}</Text>
           <Text>{deck.questions.length} cards</Text>
         </View>
-        <TextButton style={{margin: 20}}>
+        <TextButton style={{margin: 20}} onPress={() => this.props.navigation.navigate(
+          'NewCard',
+          { deckTitle: deck.title }
+        )}>
           Add Card
         </TextButton>
         <TextButton style={{margin: 20}}>
