@@ -13,7 +13,7 @@ import DeckDetail from './components/DeckDetail'
 import NewCard from './components/NewCard'
 import Quiz from './components/Quiz'
 import Result from './components/Result'
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
+import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 
 function MobiStatusBar ({backgroundColor, ...props}) {
   return (
@@ -23,7 +23,7 @@ function MobiStatusBar ({backgroundColor, ...props}) {
   )
 }
 
-const Tabs = createBottomTabNavigator({
+const Tabs = createMaterialTopTabNavigator({
   Decks: {
     screen: Decks,
     navigationOptions: {
@@ -39,13 +39,11 @@ const Tabs = createBottomTabNavigator({
     },
   }
 }, {
-  navigationOptions: {
-    header: null
-  },
   tabBarOptions: {
+    showIcon: true,
     activeTintColor: Platform.OS === 'ios' ? purple : white,
     style: {
-      height: 56,
+      height: 60,
       backgroundColor: Platform.OS === 'ios' ? white : purple,
       shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
@@ -61,6 +59,9 @@ const Tabs = createBottomTabNavigator({
 const MainNavigator = createStackNavigator({
   Home: {
     screen: Tabs,
+    navigationOptions: {
+      header: null
+    }
   },
   DeckDetail: {
     screen: DeckDetail,
