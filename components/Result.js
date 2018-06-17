@@ -12,9 +12,11 @@ class Result extends PureComponent {
 
   render() {
     const { score, totalCards } = this.props.navigation.state.params
+    const scorePercentage = (score / (totalCards) * 100).toFixed(2)
     return (
       <View>
         <Text>{score} out of {totalCards} were correct</Text>
+        <Text>Score: {scorePercentage}%</Text>
         <TextButton style={{margin: 20}}
           onPress={this.handleSubmit} >
           Start Quiz Again
