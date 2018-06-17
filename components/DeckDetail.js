@@ -23,6 +23,19 @@ class DeckDetail extends Component {
   // shouldComponentUpdate (nextProps) {
   //   return nextProps.metrics !== null && !nextProps.metrics.today
   // }
+  startQuiz = () => {
+    const { deck } = this.props
+    this.props.navigation.navigate(
+      'Quiz',
+      {
+        deckTitle: deck.title,
+        cardIndex: 0,
+        totalCards: deck.questions.length,
+        score: 0
+      }
+    )
+  }
+
   render() {
     const { deck } = this.props
 
@@ -38,7 +51,7 @@ class DeckDetail extends Component {
         )}>
           Add Card
         </TextButton>
-        <TextButton style={{margin: 20}}>
+        <TextButton style={{margin: 20}} onPress={this.startQuiz}>
           Start Quiz
         </TextButton>
       </View>

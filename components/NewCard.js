@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addCard } from '../actions'
+
 class NewDeck extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     const { deckTitle } = navigation.state.params

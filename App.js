@@ -11,6 +11,8 @@ import Decks from './components/Decks'
 import NewDeck from './components/NewDeck'
 import DeckDetail from './components/DeckDetail'
 import NewCard from './components/NewCard'
+import Quiz from './components/Quiz'
+import Result from './components/Result'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 
 function MobiStatusBar ({backgroundColor, ...props}) {
@@ -71,6 +73,24 @@ const MainNavigator = createStackNavigator({
   },
   NewCard: {
     screen: NewCard,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      }
+    }
+  },
+  Quiz: {
+    screen: Quiz,
+    navigationOptions: {
+      headerTintColor: white,
+      headerStyle: {
+        backgroundColor: purple,
+      }
+    }
+  },
+  Result: {
+    screen: Result,
     navigationOptions: {
       headerTintColor: white,
       headerStyle: {
