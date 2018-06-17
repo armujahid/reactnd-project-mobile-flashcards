@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { white } from '../utils/colors'
 import TextButton from './TextButton'
-// import { addCard } from '../actions'
+import Deck from './Deck'
 
 class DeckDetail extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -41,10 +41,7 @@ class DeckDetail extends Component {
 
     return (
       <View style={styles.container}>
-        <View>
-          <Text>{deck.title}</Text>
-          <Text>{deck.questions.length} cards</Text>
-        </View>
+        <Deck deck={deck}/>
         <TextButton style={{margin: 20}} onPress={() => this.props.navigation.navigate(
           'NewCard',
           { deckTitle: deck.title }
