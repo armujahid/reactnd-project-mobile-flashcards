@@ -10,6 +10,30 @@ class Result extends PureComponent {
     }
   }
 
+  restartQuiz = () => {
+    const { navigation } = this.props
+    const { deckTitle, totalCards } = navigation.state.params
+    navigation.navigate(
+      'Quiz',
+      {
+        deckTitle,
+        cardIndex: 0,
+        totalCards,
+        score: 0
+      }
+    )
+  }
+
+  showDeck = () => {
+    const { navigation } = this.props
+    const { deckTitle } = navigation.state.params
+
+    navigation.navigate(
+      'DeckDetail',
+      { deckTitle }
+    )
+  }
+
   render() {
     const { score, totalCards } = this.props.navigation.state.params
     const scorePercentage = (score / (totalCards) * 100).toFixed(2)
@@ -18,12 +42,12 @@ class Result extends PureComponent {
         <Text>{score} out of {totalCards} were correct</Text>
         <Text>Score: {scorePercentage}%</Text>
         <TextButton style={{margin: 20}}
-          onPress={this.handleSubmit} >
-          Start Quiz Again
+          onPress={this.restartQuiz} >
+          Restart Quiz
         </TextButton>
         <TextButton style={{margin: 20}}
-          onPress={this.handleSubmit} >
-          Show Decks
+          onPress={this.showDeck} >
+          Back to Deck
         </TextButton>
       </View>
     )
