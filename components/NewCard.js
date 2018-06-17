@@ -4,9 +4,11 @@ import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addCard } from '../actions'
 class NewDeck extends PureComponent {
-  static navigationOptions = ({ deckTitle }) => {
+  static navigationOptions = ({ navigation }) => {
+    const { deckTitle } = navigation.state.params
+
     return {
-      title: deckTitle
+      title: `Add Card in ${deckTitle}`
     }
   }
 
