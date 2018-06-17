@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 
 class Quiz extends PureComponent {
   static navigationOptions = ({ navigation }) => {
-    const { cardIndex, totalCards } = navigation.state.params
+    const { deckTitle, cardIndex, totalCards } = navigation.state.params
 
     return {
-      title: `Card ${cardIndex + 1}/${totalCards}`
+      title: `${deckTitle}: ${cardIndex + 1}/${totalCards}`
     }
   }
 
