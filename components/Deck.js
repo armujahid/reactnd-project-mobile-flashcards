@@ -16,7 +16,8 @@ export default class Deck extends PureComponent {
 
 const styles = StyleSheet.create({
   text: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 22
   },
   header: {
     fontWeight: 'bold'
