@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, Text, View } from 'react-native';
 import TextButton from './TextButton'
+import { setLocalNotification, clearLocalNotification } from '../utils/notification'
 
 class Result extends PureComponent {
   static navigationOptions = ({ navigation }) => {
@@ -8,6 +9,11 @@ class Result extends PureComponent {
     return {
       title: `${deckTitle} Quiz Result`
     }
+  }
+
+  componentDidMount() {
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   restartQuiz = () => {

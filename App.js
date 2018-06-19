@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { reset, getDecks, getDeck, saveDeckTitle, addCardToDeck } from './utils/api'
 import { handleInitialData, addDeck, addCard } from './actions'
 import { purple, white } from './utils/colors'
 import store from './store'
@@ -14,6 +13,7 @@ import NewCard from './components/NewCard'
 import Quiz from './components/Quiz'
 import Result from './components/Result'
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
+import { setLocalNotification } from './utils/notification'
 
 function MobiStatusBar ({backgroundColor, ...props}) {
   return (
@@ -103,18 +103,6 @@ const MainNavigator = createStackNavigator({
 
 export default class App extends Component {
   async componentDidMount() {
-    // await reset()
-    // await saveDeckTitle('hellotest')
-    // await addCardToDeck('hellotest', {
-    //   question: 'What is React?',
-    //   answer: 'A library for managing user interfaces'
-    // })
-    // await addCardToDeck('hellotest', {
-    //   question: 'using aysnc?',
-    //   answer: 'await'
-    // })
-    // const decks = JSON.stringify(await getDecks())
-    // const decks = JSON.stringify(await getDeck('hellotest'))
     store.dispatch(addDeck('sagadeck'))
     store.dispatch(addCard('sagadeck', {
       question: 'What is React?',
@@ -130,15 +118,12 @@ export default class App extends Component {
       answer: 'A library for managing user interfaces'
     }))
     store.dispatch(handleInitialData())
-
+    // TODO: REmove above debug dispatches.......................................
+    setLocalNotification()
   }
 
   render() {
     return (
-      // <View style={styles.container}>
-      //   <Text>Open up App.js to start working on your app!</Text>
-      //   <Text>Changes you make will automatically reload.</Text>
-      // </View>
       <Provider store={store}>
         <View style={{flex: 1}}>
           <MobiStatusBar backgroundColor={purple} barStyle="light-content" />
