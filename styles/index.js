@@ -8,5 +8,9 @@ export default StyleSheet.create({
     padding: 20,
     backgroundColor: white,
     alignItems: 'center'
+  },
+  txtInput: {
+    height: 40,
+    width: 250
   }
 })
