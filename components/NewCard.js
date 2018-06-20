@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addCard } from '../actions'
-
+import styles from '../styles'
 class NewDeck extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     const { deckTitle } = navigation.state.params
@@ -32,20 +32,20 @@ class NewDeck extends PureComponent {
     const { question, answer } = this.state
 
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
-          style={{height: 40}}
+          style={styles.txtInput}
           placeholder="Enter Question here"
           value={question}
           onChangeText={(question) => this.setState({question})}
         />
         <TextInput
-          style={{height: 40}}
+          style={styles.txtInput}
           placeholder="Enter Answer here"
           value={answer}
           onChangeText={(answer) => this.setState({answer})}
         />
-        <TextButton style={{margin: 20}}
+        <TextButton
           disabled={question === '' || answer === ''}
           onPress={this.handleSubmit} >
           Submit
