@@ -54,15 +54,17 @@ class Quiz extends PureComponent {
       navigation.dispatch(resetAction);
     } else {
       // navigateTo next card view
-      navigation.navigate(
-        'Quiz',
-        {
+      const pushAction = StackActions.push({
+        routeName: 'Quiz',
+        params: {
           deckTitle,
           cardIndex: cardIndex + 1,
           totalCards,
           score: currentScore
         }
-      )
+      });
+
+      navigation.dispatch(pushAction)
     }
   }
 
