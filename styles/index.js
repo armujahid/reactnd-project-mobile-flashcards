@@ -12,5 +12,8 @@ export default StyleSheet.create({
   txtInput: {
     height: 40,
     width: 250
+  },
+  bottomMargin: {
+    marginBottom: 100
   }
 })
