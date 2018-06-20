@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
+import styles from '../styles'
+import { white, red, green } from '../utils/colors'
 
 class Quiz extends PureComponent {
   static navigationOptions = ({ navigation }) => {
@@ -61,17 +63,21 @@ class Quiz extends PureComponent {
     const { showAnsHideQues } = this.state
 
     return (
-      <View>
+      <View style={styles.container}>
         <Text>{showAnsHideQues? card.answer: card.question}</Text>
         <TextButton style={{margin: 20}}
           onPress={this.toggleView} >
           {showAnsHideQues? 'Show Question': 'Show Answer'}
         </TextButton>
-        <TextButton style={{margin: 20}}
+        <TextButton
+          textColor={white}
+          backgroundColor={green}
           onPress={this.handleCorrect} >
           Correct
         </TextButton>
-        <TextButton style={{margin: 20}}
+        <TextButton
+          textColor={white}
+          backgroundColor={red}
           onPress={this.navigateToNextView} >
           Incorrect
         </TextButton>
