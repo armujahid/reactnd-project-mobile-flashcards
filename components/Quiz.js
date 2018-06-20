@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import { Text, View } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
+import { StackActions, NavigationActions } from 'react-navigation'
 import styles from '../styles'
 import { white, red, green } from '../utils/colors'
 
@@ -36,14 +37,21 @@ class Quiz extends PureComponent {
 
     if (isLastCard){
       // navigateTo result view
-      navigation.navigate(
-        'Result',
-        {
-          deckTitle,
-          totalCards,
-          score: currentScore
-        }
-      )
+      const resetAction = StackActions.reset({
+        index: 2,
+        key: null,
+        actions: [
+          NavigationActions.navigate({ routeName: 'Home' }),
+          NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle }}),
+          NavigationActions.navigate({ routeName: 'Result', params: {
+              deckTitle,
+              totalCards,
+              score: currentScore
+            }
+          })
+        ],
+      });
+      navigation.dispatch(resetAction);
     } else {
       // navigateTo next card view
       navigation.navigate(

@@ -21,52 +21,27 @@ class Result extends PureComponent {
   restartQuiz = () => {
     const { navigation } = this.props
     const { deckTitle, totalCards } = navigation.state.params
-    const resetAction = StackActions.reset({
-      index: 2,
-      key: null,
-      actions: [
-        NavigationActions.navigate({ routeName: 'Home' }),
-        NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle }}),
-        NavigationActions.navigate({ routeName: 'Quiz', params: {
-            deckTitle,
-            cardIndex: 0,
-            totalCards,
-            score: 0
-          }
-        })
-      ],
-    });
-    navigation.dispatch(resetAction);
 
-    // const popAction = StackActions.pop({
-    //   n: totalCards,
-    // });
-
-    // navigation.dispatch(popAction);
-    // navigation.navigate(
-    //   'Quiz',
-    //   {
-    //     deckTitle,
-    //     cardIndex: 0,
-    //     totalCards,
-    //     score: 0
-    //   }
-    // )
+    navigation.navigate(
+      'Quiz',
+      {
+        deckTitle,
+        cardIndex: 0,
+        totalCards,
+        score: 0
+      }
+    )
   }
 
   showDeck = () => {
     const { navigation } = this.props
     const { deckTitle } = navigation.state.params
 
-    const resetAction = StackActions.reset({
-      index: 1,
-      key: null,
-      actions: [
-        NavigationActions.navigate({ routeName: 'Home' }),
-        NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle }}),
-      ],
+    const popAction = StackActions.pop({
+      n: 1,
     });
-    navigation.dispatch(resetAction);
+
+    navigation.dispatch(popAction);
   }
 
   render() {
