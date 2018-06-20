@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Text, View } from 'react-native'
-import { StackActions } from 'react-navigation'
+import { StackActions, NavigationActions } from 'react-navigation'
 import TextButton from './TextButton'
 import { setLocalNotification, clearLocalNotification } from '../utils/notification'
 import styles from '../styles'
@@ -21,31 +21,52 @@ class Result extends PureComponent {
   restartQuiz = () => {
     const { navigation } = this.props
     const { deckTitle, totalCards } = navigation.state.params
-    const popAction = StackActions.pop({
-      n: totalCards,
+    const resetAction = StackActions.reset({
+      index: 2,
+      key: null,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle }}),
+        NavigationActions.navigate({ routeName: 'Quiz', params: {
+            deckTitle,
+            cardIndex: 0,
+            totalCards,
+            score: 0
+          }
+        })
+      ],
     });
+    navigation.dispatch(resetAction);
 
-    navigation.dispatch(popAction);
-    navigation.navigate(
-      'Quiz',
-      {
-        deckTitle,
-        cardIndex: 0,
-        totalCards,
-        score: 0
-      }
-    )
+    // const popAction = StackActions.pop({
+    //   n: totalCards,
+    // });
+
+    // navigation.dispatch(popAction);
+    // navigation.navigate(
+    //   'Quiz',
+    //   {
+    //     deckTitle,
+    //     cardIndex: 0,
+    //     totalCards,
+    //     score: 0
+    //   }
+    // )
   }
 
   showDeck = () => {
     const { navigation } = this.props
-    const { totalCards } = navigation.state.params
+    const { deckTitle } = navigation.state.params
 
-    const popAction = StackActions.pop({
-      n: totalCards,
+    const resetAction = StackActions.reset({
+      index: 1,
+      key: null,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle }}),
+      ],
     });
-
-    navigation.dispatch(popAction);
+    navigation.dispatch(resetAction);
   }
 
   render() {
