@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { StyleSheet, Text, View, Platform, TouchableOpacity } from 'react-native';
-import { white, purple } from '../utils/colors'
+import { StyleSheet, FlatList, View, Platform, TouchableOpacity } from 'react-native';
+import { white } from '../utils/colors'
 import Deck from './Deck'
 
 class Decks extends PureComponent {
@@ -13,19 +13,26 @@ class Decks extends PureComponent {
     )
   }
 
+  renderDeck = ({ item }) => (
+    <View style={styles.item}>
+      <TouchableOpacity
+        onPress={() => this.handleDeckPress(item)}>
+        <Deck deck={item}/>
+      </TouchableOpacity>
+    </View>
+  )
+
   render() {
     const { decks } = this.props
+    const flatDecks = Object.keys(decks).map(key => decks[key])
     return (
       <View>
         {
-          Object.keys(decks).map(key => (
-            <View key={key} style={styles.item}>
-              <TouchableOpacity
-                onPress={() => this.handleDeckPress(decks[key])}>
-                <Deck deck={decks[key]}/>
-              </TouchableOpacity>
-            </View>
-          ))
+          <FlatList
+              data={flatDecks}
+              renderItem={this.renderDeck}
+              keyExtractor={(item) => item.title}
+          />
         }
       </View>
     )
