@@ -20,19 +20,15 @@ export default function TextButton ({ children, onPress, disabled, textColor, ba
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: white
-  },
   btn: {
     backgroundColor: purple,
     borderColor: white,
     borderWidth: 1,
     padding: 10,
-    marginLeft: 70,
-    marginRight: 70,
+    marginLeft: 30,
+    marginRight: 30,
     height: 45,
+    width: 200,
     borderRadius: 7,
     justifyContent: 'center',
     alignItems: 'center',
