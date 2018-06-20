@@ -47,7 +47,7 @@ class Result extends PureComponent {
     return (
       <View style={styles.container}>
         <Text>{score} out of {totalCards} were correct</Text>
-        <Text>Score: {scorePercentage}%</Text>
+        <Text style={styles.bottomMargin}>Score: {scorePercentage}%</Text>
         <TextButton style={{margin: 20}}
           onPress={this.restartQuiz} >
           Restart Quiz

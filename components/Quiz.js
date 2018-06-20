@@ -64,7 +64,7 @@ class Quiz extends PureComponent {
 
     return (
       <View style={styles.container}>
-        <Text>{showAnsHideQues? card.answer: card.question}</Text>
+        <Text style={styles.bottomMargin}>{showAnsHideQues? card.answer: card.question}</Text>
         <TextButton style={{margin: 20}}
           onPress={this.toggleView} >
           {showAnsHideQues? 'Show Question': 'Show Answer'}

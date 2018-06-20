@@ -33,7 +33,7 @@ class DeckDetail extends Component {
 
     return (
       <View style={styles.container}>
-        <Deck deck={deck}/>
+        <Deck style={styles.bottomMargin} deck={deck}/>
         <TextButton
           textColor={purple}
           backgroundColor={white}
