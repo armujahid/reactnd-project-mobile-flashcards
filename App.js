@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar, Platform } from 'react-native';
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
-import { handleInitialData, addDeck, addCard } from './actions'
+import { handleInitialData } from './actions'
 import { purple, white } from './utils/colors'
 import store from './store'
 import Decks from './components/Decks'
@@ -103,22 +103,7 @@ const MainNavigator = createStackNavigator({
 
 export default class App extends Component {
   async componentDidMount() {
-    store.dispatch(addDeck('sagadeck'))
-    store.dispatch(addCard('sagadeck', {
-      question: 'What is React?',
-      answer: 'A library for managing user interfaces'
-    }))
-    store.dispatch(addDeck('sagadeck2'))
-    store.dispatch(addCard('sagadeck2', {
-      question: 'What is React?',
-      answer: 'A library for managing user interfaces'
-    }))
-    store.dispatch(addCard('sagadeck2', {
-      question: 'What is React?',
-      answer: 'A library for managing user interfaces'
-    }))
     store.dispatch(handleInitialData())
-    // TODO: REmove above debug dispatches.......................................
     setLocalNotification()
   }
 
@@ -133,12 +118,3 @@ export default class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
