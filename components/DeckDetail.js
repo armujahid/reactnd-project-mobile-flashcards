@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { white } from '../utils/colors'
 import TextButton from './TextButton'
 import Deck from './Deck'
+import styles from '../styles'
 
 class DeckDetail extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -48,14 +49,6 @@ class DeckDetail extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: white,
-    padding: 15,
-  },
-})
 
 function mapStateToProps (state, { navigation }) {
   const { deckTitle } = navigation.state.params
