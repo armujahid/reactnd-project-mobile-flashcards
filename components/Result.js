@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
-import { Text, View } from 'react-native';
+import { Text, View } from 'react-native'
+import { StackActions } from 'react-navigation'
 import TextButton from './TextButton'
 import { setLocalNotification, clearLocalNotification } from '../utils/notification'
 import styles from '../styles'
@@ -20,6 +21,11 @@ class Result extends PureComponent {
   restartQuiz = () => {
     const { navigation } = this.props
     const { deckTitle, totalCards } = navigation.state.params
+    const popAction = StackActions.pop({
+      n: totalCards,
+    });
+
+    navigation.dispatch(popAction);
     navigation.navigate(
       'Quiz',
       {
@@ -33,12 +39,13 @@ class Result extends PureComponent {
 
   showDeck = () => {
     const { navigation } = this.props
-    const { deckTitle } = navigation.state.params
+    const { totalCards } = navigation.state.params
 
-    navigation.navigate(
-      'DeckDetail',
-      { deckTitle }
-    )
+    const popAction = StackActions.pop({
+      n: totalCards,
+    });
+
+    navigation.dispatch(popAction);
   }
 
   render() {
