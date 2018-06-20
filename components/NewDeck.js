@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addDeck } from '../actions'
+import styles from '../styles'
 class NewDeck extends PureComponent {
   state = {
     title: ''
@@ -18,9 +19,9 @@ class NewDeck extends PureComponent {
     const { title } = this.state
 
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
-          style={{height: 40}}
+          style={{height: 40, width: 250}}
           placeholder="Deck Title"
           value={title}
           onChangeText={(title) => this.setState({title})}
