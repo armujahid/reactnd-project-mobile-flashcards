@@ -1,5 +1,20 @@
 {
   "expo": {
-    "sdkVersion": "28.0.0"
+    "sdkVersion": "28.0.0",
+    "orientation": "portrait",
+    "name": "MobileFlashcards",
+    "description": "The best flashcards app ever",
+    "slug": "udacfitness",
+    "version": "1.0",
+    "icon": "https://armujahid.me/images/flashcards-512.png",
+    "notification": {
+      "icon": "https://armujahid.me/images/flashcards-40.png"
+    },
+    "ios": {
+      "bundleIdentifier": "me.armujahid.flashcards.exp"
+    },
+    "android": {
+      "package": "me.armujahid.flashcards.exp"
+    }
   }
 }
