@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import TextButton from './TextButton'
 import { setLocalNotification, clearLocalNotification } from '../utils/notification'
+import styles from '../styles'
 
 class Result extends PureComponent {
   static navigationOptions = ({ navigation }) => {
@@ -44,7 +45,7 @@ class Result extends PureComponent {
     const { score, totalCards } = this.props.navigation.state.params
     const scorePercentage = (score / (totalCards) * 100).toFixed(2)
     return (
-      <View>
+      <View style={styles.container}>
         <Text>{score} out of {totalCards} were correct</Text>
         <Text>Score: {scorePercentage}%</Text>
         <TextButton style={{margin: 20}}
