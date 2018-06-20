@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addDeck } from '../actions'
@@ -21,12 +21,12 @@ class NewDeck extends PureComponent {
     return (
       <View style={styles.container}>
         <TextInput
-          style={{height: 40, width: 250}}
+          style={styles.txtInput}
           placeholder="Deck Title"
           value={title}
           onChangeText={(title) => this.setState({title})}
         />
-        <TextButton style={{margin: 20}}
+        <TextButton
           disabled={title === ''}
           onPress={this.handleSubmit} >
           Submit
