@@ -10,7 +10,7 @@ export default function TextButton ({ children, onPress, disabled, textColor, ba
   }
   if (textColor) {
     buttonStyles.push({ borderColor: textColor })
-    buttonTextStyles.push({ borderColor: textColor })
+    buttonTextStyles.push({ color: textColor })
   }
   return (
     <TouchableOpacity style={buttonStyles} onPress={onPress} disabled={disabled}>
