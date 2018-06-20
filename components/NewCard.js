@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addCard } from '../actions'

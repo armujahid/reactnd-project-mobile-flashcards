@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Text, View } from 'react-native'
-import { StackActions, NavigationActions } from 'react-navigation'
+import { StackActions } from 'react-navigation'
 import TextButton from './TextButton'
 import { setLocalNotification, clearLocalNotification } from '../utils/notification'
 import styles from '../styles'
