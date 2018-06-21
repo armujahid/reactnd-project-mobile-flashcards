@@ -102,7 +102,7 @@ const MainNavigator = createStackNavigator({
 })
 
 export default class App extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     store.dispatch(handleInitialData())
     setLocalNotification()
   }
