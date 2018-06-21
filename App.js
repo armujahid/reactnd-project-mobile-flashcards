@@ -14,6 +14,7 @@ import Quiz from './components/Quiz'
 import Result from './components/Result'
 import { createMaterialTopTabNavigator, createStackNavigator } from 'react-navigation'
 import { setLocalNotification } from './utils/notification'
+import './ReactotronConfig'
 
 function MobiStatusBar ({backgroundColor, ...props}) {
   return (
