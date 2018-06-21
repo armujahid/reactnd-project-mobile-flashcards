@@ -1,5 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects'
-import { receiveDecks, FETCH_DECKS, addDeck, ADD_DECK, addCard, ADD_CARD } from '../actions'
+import { receiveDecks, FETCH_DECKS, receiveDeck, ADD_DECK, receiveCard, ADD_CARD } from '../actions'
 import { getDecks, saveDeckTitle, addCardToDeck } from '../utils/api'
 
 
@@ -10,12 +10,12 @@ function* fetchDecksSaga() {
 
 function* saveDeckSaga(action) {
   yield saveDeckTitle(action.title)
-  yield put(addDeck(action.title))
+  yield put(receiveDeck(action.title))
 }
 
 function* addCardSaga(action) {
   yield addCardToDeck(action.decktitle, action.card)
-  yield put(addCard(action.decktitle, action.card))
+  yield put(receiveCard(action.decktitle, action.card))
 }
 
 // use them in parallel

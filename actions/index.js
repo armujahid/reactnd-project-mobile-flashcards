@@ -18,16 +18,31 @@ export function receiveDecks (decks) {
   }
 }
 
-export function addDeck (title) {
+export function receiveDeck (title) {
   return {
     type: DECK_RECEIVED,
     title,
   }
 }
 
-export function addCard (decktitle, card) {
+export function addDeck (title) {
+  return {
+    type: ADD_DECK,
+    title,
+  }
+}
+
+export function receiveCard (decktitle, card) {
   return {
     type: CARD_RECEIVED,
+    decktitle,
+    card,
+  }
+}
+
+export function addCard (decktitle, card) {
+  return {
+    type: ADD_CARD,
     decktitle,
     card,
   }
