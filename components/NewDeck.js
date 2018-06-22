@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import { View, TextInput } from 'react-native';
+import { StackActions, NavigationActions } from 'react-navigation'
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
 import { addDeck } from '../actions'
@@ -13,10 +14,15 @@ class NewDeck extends PureComponent {
     const { submitTitle, navigation } = this.props
     const { title } = this.state
     submitTitle(this.state.title)
-    navigation.navigate(
-      'DeckDetail',
-      { deckTitle: title }
-    )
+    const resetAction = StackActions.reset({
+      index: 1,
+      key: null,
+      actions: [
+        NavigationActions.navigate({ routeName: 'Home' }),
+        NavigationActions.navigate({ routeName: 'DeckDetail', params: { deckTitle: title }})
+      ],
+    });
+    navigation.dispatch(resetAction);
     this.setState({title: ''})
   }
   render() {
