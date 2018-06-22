@@ -17,7 +17,7 @@ This app also shows notification if user hasn't completed at least one quiz for 
 
 ## Platform
 
-This app has been tested on Android O. Although it should also work on iOS.
+This app has been tested on Android Oreo 8.0.0 (Mi A1) and iOS 11.2.6 (iPhone5s).
 
 ## Published link
 
