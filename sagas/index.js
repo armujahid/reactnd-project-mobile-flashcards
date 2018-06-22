@@ -1,6 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { receiveDecks, FETCH_DECKS, receiveDeck, ADD_DECK, receiveCard, ADD_CARD } from '../actions'
-import { getDecks, saveDeckTitle, addCardToDeck } from '../utils/api'
+import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
 
 
 function* fetchDecksSaga() {
@@ -9,8 +9,12 @@ function* fetchDecksSaga() {
 }
 
 function* saveDeckSaga(action) {
-  yield saveDeckTitle(action.title)
-  yield put(receiveDeck(action.title))
+  // only add if deck doesn't already exist
+  const deck = yield getDeck(action.title)
+  if (!deck) {
+    yield saveDeckTitle(action.title)
+    yield put(receiveDeck(action.title))
+  }
 }
 
 function* addCardSaga(action) {
