@@ -11,13 +11,19 @@ This app also shows notification if user hasn't completed at least one quiz for 
 
 ## Installation
 
-* install all project dependencies with `yarn install`
+* install all project dependencies with `yarn install` or `npm install`
 * start the development server with `yarn start` or `npm start`
 * Production build can be created using  `exp build:android` or `exp build:ios`
 
 ## Platform
 
-This app has been tested on Android O. Although it should also work on iOS
+This app has been tested on Android O. Although it should also work on iOS.
+
+## Published link
+
+App is currently published at https://expo.io/@armujahid/flashcards.
+It can be quickly run by installing expo client for Android or iOS.
+It may be published to Google Play Store or Itunes in future.
 
 ## License
 
