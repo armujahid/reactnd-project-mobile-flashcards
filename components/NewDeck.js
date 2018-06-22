@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { View, TextInput } from 'react-native';
+import { KeyboardAvoidingView, TextInput } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation'
 import TextButton from './TextButton'
 import { connect } from 'react-redux';
@@ -29,7 +29,7 @@ class NewDeck extends PureComponent {
     const { title } = this.state
 
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <TextInput
           style={styles.txtInput}
           placeholder="Deck Title"
@@ -41,7 +41,7 @@ class NewDeck extends PureComponent {
           onPress={this.handleSubmit} >
           Submit
         </TextButton>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
