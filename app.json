@@ -15,6 +15,9 @@
     },
     "android": {
       "package": "me.armujahid.flashcards.exp"
+    },
+    "splash": {
+      "image": "./assets/splash.png"
     }
   }
 }
