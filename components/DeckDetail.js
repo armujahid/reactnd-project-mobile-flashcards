@@ -30,6 +30,9 @@ class DeckDetail extends Component {
 
   render() {
     const { deck } = this.props
+    if (!deck) {
+      return null
+    }
 
     return (
       <View style={styles.container}>

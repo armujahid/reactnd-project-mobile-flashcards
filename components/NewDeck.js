@@ -10,10 +10,14 @@ class NewDeck extends PureComponent {
   }
 
   handleSubmit = () => {
-    const { submitTitle, goBack } = this.props
+    const { submitTitle, navigation } = this.props
+    const { title } = this.state
     submitTitle(this.state.title)
+    navigation.navigate(
+      'DeckDetail',
+      { deckTitle: title }
+    )
     this.setState({title: ''})
-    goBack()
   }
   render() {
     const { title } = this.state
@@ -36,10 +40,9 @@ class NewDeck extends PureComponent {
   }
 }
 
-const mapDispatchToProps = (dispatch, { navigation }) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    submitTitle: (title) => dispatch(addDeck(title)),
-    goBack: () => navigation.goBack(),
+    submitTitle: (title) => dispatch(addDeck(title))
   }
 }
 
