@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, StatusBar, Platform } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
@@ -41,10 +41,10 @@ const Tabs = createMaterialTopTabNavigator({
 }, {
   tabBarOptions: {
     showIcon: true,
-    activeTintColor: Platform.OS === 'ios' ? purple : white,
+    activeTintColor: white,
     style: {
       height: 60,
-      backgroundColor: Platform.OS === 'ios' ? white : purple,
+      backgroundColor: purple,
       shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         width: 0,
