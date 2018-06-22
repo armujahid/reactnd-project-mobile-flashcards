@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, StatusBar, Platform } from 'react-native';
 import { Provider } from 'react-redux'
 import { Constants } from 'expo'
@@ -101,7 +101,7 @@ const MainNavigator = createStackNavigator({
   }
 })
 
-export default class App extends Component {
+export default class App extends PureComponent {
   componentDidMount() {
     store.dispatch(handleInitialData())
     setLocalNotification()

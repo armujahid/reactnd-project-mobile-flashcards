@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { white, purple } from '../utils/colors'
@@ -6,7 +6,7 @@ import TextButton from './TextButton'
 import Deck from './Deck'
 import styles from '../styles'
 
-class DeckDetail extends Component {
+class DeckDetail extends PureComponent {
   static navigationOptions = ({ navigation }) => {
     const { deckTitle } = navigation.state.params
 
