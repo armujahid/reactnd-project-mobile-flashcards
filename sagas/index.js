@@ -1,10 +1,14 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { receiveDecks, FETCH_DECKS, receiveDeck, ADD_DECK, receiveCard, ADD_CARD } from '../actions'
-import { getDecks, getDeck, saveDeckTitle, addCardToDeck } from '../utils/api'
+import { getDecks, getDeck, saveDeckTitle, addCardToDeck, initDeck } from '../utils/api'
 
 
 function* fetchDecksSaga() {
-  const decks = yield getDecks()
+  let decks = yield getDecks()
+  if (!decks) {
+    yield initDeck()
+    decks = yield getDecks()
+  }
   yield put(receiveDecks(decks))
 }
 
