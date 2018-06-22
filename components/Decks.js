@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import { StyleSheet, FlatList, View, Text, Platform, TouchableOpacity } from 'react-native';
+import { StyleSheet, FlatList, View, Platform, TouchableOpacity } from 'react-native';
 import { white } from '../utils/colors'
 import Deck from './Deck'
-import globalStyles from '../styles'
 
 class Decks extends PureComponent {
 
@@ -26,13 +25,6 @@ class Decks extends PureComponent {
   render() {
     const { decks } = this.props
     const flatDecks = Object.keys(decks).map(key => decks[key])
-    if (flatDecks.length == 0) {
-      return (
-        <View style={globalStyles.container}>
-          <Text>Please create a Deck!</Text>
-        </View>
-      )
-    }
     return (
       <View>
         {
