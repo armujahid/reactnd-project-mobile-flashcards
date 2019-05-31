@@ -1,4 +1,4 @@
-# Mobile Flashcards
+# Mobile Flashcards [![Build Status](https://travis-ci.org/armujahid/reactnd-project-mobile-flashcards.svg?branch=master)](https://travis-ci.org/armujahid/reactnd-project-mobile-flashcards)
 
 This project is created for assessment in Udacity's React Native course.
 This is basically a Flashcards app in which user can create virtually unlimited number of decks.
