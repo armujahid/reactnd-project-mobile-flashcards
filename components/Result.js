@@ -35,7 +35,6 @@ class Result extends PureComponent {
 
   showDeck = () => {
     const { navigation } = this.props
-    const { deckTitle } = navigation.state.params
 
     const popAction = StackActions.pop({
       n: 1,
